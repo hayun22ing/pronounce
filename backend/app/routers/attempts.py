@@ -131,8 +131,11 @@ def get_attempt_result(attempt_id: str) -> Dict[str, Any]:
         "utterance_id": attempt["utterance_id"],
         "status": attempt["status"],
         "score": attempt.get("score"),
-        "overall_score": attempt.get("score"),
-        "pronunciation_score": attempt.get("score"),
+        "overall_score": attempt.get("overall_score") or attempt.get("score"),
+        "pronunciation_score": attempt.get("pronunciation_score")
+        or attempt.get("score"),
+        "pitch_score": attempt.get("pitch_score") or 0,
+        "transcript": attempt.get("transcript") or "",
         "feedback_type": attempt.get("feedback_type"),
         "feedback_message": attempt.get("feedback_message"),
         "clip_filename": attempt.get("clip_filename"),

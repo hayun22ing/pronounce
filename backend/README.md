@@ -11,8 +11,12 @@ from the verified `speech-mvp` prototype.
 - `app/services/analysis_service.py`: `run_full_analysis_from_metadata`.
 - `app/services/metadata_loader.py`: metadata CSV loader.
 - `data/metadata/utterance_metadata_v1.csv`: canonical utterance metadata.
+- `data/tts.py`: local utility for generating temporary reference audio.
+- `data/clips/`: local source clip workspace.
 - `data/audio/reference/`: canonical reference audio directory.
+- `data/audio/test/`: local test audio workspace.
 - `data/audio/attempts/`: local uploaded attempt audio and generated results.
+- `data/legacy/data1/`: isolated prototype-only data copied from `speech-mvp`.
 
 ## Run Locally
 
@@ -28,3 +32,10 @@ uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 ```
 
 The Flutter app defaults to `http://localhost:8000`.
+
+For local TTS reference generation, install the optional dev dependencies:
+
+```sh
+python -m pip install -r requirements-dev.txt
+python data/tts.py
+```

@@ -90,6 +90,7 @@ def save_analysis_result(
 ) -> Dict[str, Any]:
     feedback = analysis_result["feedback"]
     comparison = analysis_result["comparison"]
+    prosody = analysis_result["prosody"]
     utterance = analysis_result["utterance"]
 
     phoneme_analysis = {
@@ -113,6 +114,10 @@ def save_analysis_result(
         {
             "status": "completed",
             "score": comparison["simple_score"],
+            "overall_score": comparison["simple_score"],
+            "pronunciation_score": comparison["simple_score"],
+            "pitch_score": prosody.get("pitch_similarity"),
+            "transcript": analysis_result["transcription"]["text"],
             "feedback_type": feedback["type"],
             "feedback_message": feedback["message"],
             "top_mismatch": feedback["top_mismatch"],

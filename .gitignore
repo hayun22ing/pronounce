@@ -50,4 +50,8 @@ backend/__pycache__/
 backend/**/*.pyc
 backend/data/audio/attempts/*
 !backend/data/audio/attempts/.gitkeep
+backend/data/audio/reference_mp3/*
+!backend/data/audio/reference_mp3/.gitkeep
+backend/data/clips/*
+!backend/data/clips/.gitkeep
 backend/data/temp/
